@@ -1,23 +1,46 @@
 window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY;
-    const windowHeight = window.innerHeight;
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
 
-    if (scrollPosition < windowHeight) {
-        document.body.style.backgroundColor = "#000000";
-    } else if (scrollPosition < windowHeight * 2) {
-        document.body.style.backgroundColor = "#ccfbf1";
-    } else if (scrollPosition < windowHeight * 3) {
-        document.body.style.backgroundColor = "#fde047";
-    } else {
-        document.body.style.backgroundColor = "#ef4444";
-    }
+  if (scrollPosition < windowHeight) {
+    document.body.style.backgroundColor = "#000000";
+  } else if (scrollPosition < windowHeight * 2) {
+    document.body.style.backgroundColor = "#ccfbf1";
+  } else if (scrollPosition < windowHeight * 3) {
+    document.body.style.backgroundColor = "#fde047";
+  } else if (scrollPosition < windowHeight * 4) {
+    document.body.style.backgroundColor = "#a78bfa";
+  } else if (scrollPosition < windowHeight * 5) {
+    document.body.style.backgroundColor = "#bef264";
+  } else if (scrollPosition < windowHeight * 6) {
+    document.body.style.backgroundColor = "#bef264";
+  } else if (scrollPosition < windowHeight * 7) {
+    document.body.style.backgroundColor = "#bef264";
+  }
+  else if (scrollPosition < windowHeight * 8) {
+    document.body.style.backgroundColor = "#bef264";
+  }
+
+
 });
 
 
+const scrollContainer = document.getElementById('horizontal-scroll');
 
-const words = ["Developer", "Designer", "Problem Solver","Data Analyst", "Researcher",];
-const typingSpeed = 150; // Time in milliseconds between each character
-const delayBetweenWords = 2000; // Delay before deleting the word and typing the next word
+    // Listen for scroll event on the window
+    window.addEventListener('wheel', (event) => {
+      // Check if we're scrolling vertically
+      if (event.deltaY !== 0) {
+        event.preventDefault(); // Prevent the default vertical scroll
+        scrollContainer.scrollLeft += event.deltaY; // Apply vertical scroll to horizontal scroll
+      }
+    });
+    
+
+
+const words = ["Developer", "Designer", "Problem Solver", "Data Analyst", "Researcher"];
+const typingSpeed = 100; // Time in milliseconds between each character
+const delayBetweenWords = 1000; // Delay before deleting the word and typing the next word
 
 let wordIndex = 0;
 let charIndex = 0;
