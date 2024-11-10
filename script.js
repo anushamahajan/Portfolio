@@ -24,19 +24,34 @@ window.addEventListener("scroll", () => {
 
 });
 
+window.addEventListener("scroll", function () {
+  var windowScroll = window.pageYOffset;
+  var $horizontalWrapper = document.getElementById("horizontal-wrapper");
+  $horizontalWrapper.className = '';
+  
+  switch (true) {
+    case (windowScroll >= ($horizontalWrapper.offsetTop + $horizontalWrapper.offsetHeight - window.innerHeight)):
+      $horizontalWrapper.classList.add('post-sticky');
+      break;
+    case (windowScroll >= $horizontalWrapper.offsetTop):
+      $horizontalWrapper.classList.add('sticky');
 
-const scrollContainer = document.getElementById('horizontal-scroll');
-
-    // Listen for scroll event on the window
-    window.addEventListener('wheel', (event) => {
-      // Check if we're scrolling vertically
-      if (event.deltaY !== 0) {
-        event.preventDefault(); // Prevent the default vertical scroll
-        scrollContainer.scrollLeft += event.deltaY; // Apply vertical scroll to horizontal scroll
-      }
-    });
-    
-
+      var _start = (windowScroll - $horizontalWrapper.offsetTop);
+      var _end = ($horizontalWrapper.offsetTop + $horizontalWrapper.offsetHeight - window.innerHeight);
+      
+      const scrollSpeedModifier = 2.5; // Adjust this value to change scroll speed
+      var pct = (_start / _end) * 100 * scrollSpeedModifier;
+      
+      pct = Math.min(pct, 100);
+      
+      $horizontalWrapper.querySelectorAll('.inner')[0].style.transform = `translate(-${pct}%)`;
+      break;
+    default:
+      $horizontalWrapper.classList.add('pre-sticky');
+      $horizontalWrapper.querySelectorAll('.inner')[0].style.transform = 'translate(0)';
+      break;
+  }
+});
 
 const words = ["Developer", "Designer", "Problem Solver", "Data Analyst", "Researcher"];
 const typingSpeed = 100; // Time in milliseconds between each character

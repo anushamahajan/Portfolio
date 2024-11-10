@@ -17,31 +17,34 @@
 
 
     <style>
-        .scroll-container {
-            display: flex;
-            overflow-x: auto;
-            overflow-y: hidden;
-            /* Hide vertical scroll */
+        #horizontal-wrapper {
+            overflow: hidden;
+            background: green;
+            height: 125vw; 
+            /* bc badi dikkat hui ye height set karne me. bhot trial and error kia fr 125vw set kar diya */
+            border: 1px dotted blue;
+            position: relative;
+        }
+
+        #horizontal-wrapper .inner {
+            width: 300vw;
             height: 100vh;
-            /* Full viewport height */
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            /* Hide scrollbar on Firefox */
         }
 
-        .scroll-container::-webkit-scrollbar {
-            display: none;
-            /* Hide scrollbar on Chrome */
+        #horizontal-wrapper.sticky .inner {
+            position: fixed;
+            top: 0;
+            bottom: auto;
         }
 
-        .scroll-item {
-            flex: 0 0 auto;
-            /* Prevent items from shrinking */
-            width: 75vw;
-            /* Width of each box */
-            height: 80vh;
-            /* Height of each box */
-            scroll-snap-align: start;
+        #horizontal-wrapper.post-sticky .inner {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+        }
+        .scroll-item{
+            width: 100vw;
+            height: 100vh;
         }
 
         /* Monument Extended Font Face */
@@ -67,7 +70,7 @@
         .font-montserrat {
             font-family: "Montserrat", sans-serif;
             font-optical-sizing: auto;
-            font-weight: <weight>;
+            font-weight: 700;
             font-style: normal;
         }
 
@@ -169,33 +172,42 @@
 
     <!-- -------- -->
     <!-- Scrolling Container -->
-    <div id="horizontal-scroll" class="scroll-container space-x-5 px-10">
-        <!-- Box 1 -->
-        <div class="scroll-item bg-teal-100 rounded-xl p-10 flex flex-col justify-center space-y-8">
-            <div class="text-7xl font-bold pr-52">Crafting <span class="text-teal-600">experiences for brands</span>
-                with vision.</div>
-            <div class="text-2xl font-semibold text-teal-600 pr-32">Explore my digital design journey, blending
-                creativity, functionality, and strategy in every project.</div>
-        </div>
+    <div id="horizontal-wrapper" class="scroll-container space-x-5 px-10">
+        <div class="inner flex">
+            <!-- Box 1 -->
+            <div class="scroll-item bg-teal-100 p-10 flex flex-col justify-center space-y-8">
+                <div class="text-7xl font-bold pr-52">Crafting <span class="text-teal-600">experiences for brands</span>
+                    with vision.</div>
+                <div class="text-2xl font-semibold text-teal-600 pr-32">Explore my digital design journey, blending
+                    creativity, functionality, and strategy in every project.</div>
+            </div>
 
-        <!-- Box 2 -->
-        <div class="scroll-item bg-purple-200 rounded-xl p-10 flex flex-col justify-center space-y-8">
-            <div class="text-7xl font-bold pr-52">Creating <span class="text-purple-600">solutions for growth</span>
-                with impact.</div>
-            <div class="text-2xl font-semibold text-purple-600 pr-32">Building engaging and effective designs for brands
-                and audiences alike.</div>
-        </div>
+            <!-- Box 2 -->
+            <div class="scroll-item bg-purple-200 p-10 flex flex-col justify-center space-y-8">
+                <div class="text-7xl font-bold pr-52">Creating <span class="text-purple-600">solutions for growth</span>
+                    with impact.</div>
+                <div class="text-2xl font-semibold text-purple-600 pr-32">Building engaging and effective designs for
+                    brands
+                    and audiences alike.</div>
+            </div>
 
-        <!-- Box 3 -->
-        <div class="scroll-item bg-indigo-200 rounded-xl p-10 flex flex-col justify-center space-y-8">
-            <div class="text-7xl font-bold pr-52">Innovating <span class="text-indigo-600">with creativity</span> and
-                purpose.</div>
-            <div class="text-2xl font-semibold text-indigo-600 pr-32">Delivering designs that bring value and delight to
-                every user interaction.</div>
+            <!-- Box 3 -->
+            <div class="scroll-item bg-indigo-200 p-10 flex flex-col justify-center space-y-8">
+                <div class="text-7xl font-bold pr-52">Innovating <span class="text-indigo-600">with creativity</span>
+                    and
+                    purpose.</div>
+                <div class="text-2xl font-semibold text-indigo-600">Delivering designs that bring value and
+                    delight to
+                    every user interaction.</div>
+            </div>
         </div>
     </div>
 
-    
+    <div class="h-screen bg-green-400">
+
+    </div>
+
+
 
 
     <script src="./script.js">
