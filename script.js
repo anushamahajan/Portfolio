@@ -58,14 +58,16 @@ window.addEventListener("scroll", function () {
   var $horizontalWrapper = document.getElementById("horizontal-wrapper");
   $horizontalWrapper.className = '';
 
+  var stickyThreshold = window.innerHeight * 0.1; // 10% from the top
+
   switch (true) {
     case (windowScroll >= ($horizontalWrapper.offsetTop + $horizontalWrapper.offsetHeight - window.innerHeight)):
       $horizontalWrapper.classList.add('post-sticky');
       break;
-    case (windowScroll >= $horizontalWrapper.offsetTop):
+    case (windowScroll >= $horizontalWrapper.offsetTop - stickyThreshold):
       $horizontalWrapper.classList.add('sticky');
 
-      var _start = (windowScroll - $horizontalWrapper.offsetTop);
+      var _start = (windowScroll - $horizontalWrapper.offsetTop + stickyThreshold);
       var _end = ($horizontalWrapper.offsetTop + $horizontalWrapper.offsetHeight - window.innerHeight);
 
       const scrollSpeedModifier = 2.5; // Adjust this value to change scroll speed
