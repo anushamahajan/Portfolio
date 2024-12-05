@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 
 
@@ -95,28 +97,175 @@
             }
         }
 
-        
+        :root {
+            --color-bg1: rgb(0, 0, 0);
+            --color-bg2: rgb(0, 0, 0);
+            --color1: 0, 150, 255;
+            --color2: 221, 74, 255;
+            --color-interactive: 140, 100, 255;
+            --circle-size: 80%;
+            --blending: hard-light;
+        }
+
+
+        #section1 {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+        }
+
+        .gradients-container {
+            filter: blur(40px);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .g1,
+        .g2,
+        .g3,
+        .g4,
+        .g5 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: var(--circle-size);
+            height: var(--circle-size);
+            transform-origin: center center;
+            animation: moveInCircle 20s ease infinite;
+            opacity: 1;
+        }
+
+        .interactive {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: var(--circle-size);
+            height: var(--circle-size);
+            opacity: 0.7;
+        }
+
+
+
+
+        @keyframes moveInCircle {
+            0% {
+                transform: rotate(0deg) translate(150px);
+                /* Increase radius */
+            }
+
+            50% {
+                transform: rotate(180deg) translate(100px);
+                /* Move further away from the center */
+            }
+
+            100% {
+                transform: rotate(360deg) translate(100px);
+            }
+        }
+
+        @keyframes moveVertical {
+            0% {
+                transform: translateY(-50%);
+            }
+
+            50% {
+                transform: translateY(50%);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                transform: translateX(-50%) translateY(-10%);
+            }
+
+            50% {
+                transform: translateX(50%) translateY(10%);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(-10%);
+            }
+        }
+
+       /* Splash Screen Styling */
+       .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            z-index: 1000;
+        }
+
+        /* Fade-out effect for splash screen */
+        .fade-out {
+            animation: fadeOut 1.5s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
     </style>
 </head>
 
 <body class="h-screen overflow-x-hidden">
+    <!-- <div id="splash" class="h-screen w-screen splash-screen">
+        <video src="./splash.mp4"></video>
+    </div> -->
+
+
     <!-- Home Page -->
-    <div id="section1" class="bg-black w-screen h-screen flex items-center justify-center">
-        <div class="mx-auto text-center">
-            <div class="text-6xl px-4 font-bold font-montserrat text-white  ">
+    <div id="section1" class="w-screen h-screen flex items-center justify-center">
+        <!-- Gradient Layer -->
+        <div class="gradients-container z-0">
+            <div class="g1 opacity-25"></div>
+            <div class="g2 opacity-25"></div>
+            <div class="g3 opacity-25 "></div>
+            <div class="g4 opacity-25"></div>
+            <div class="g5 opacity-25"></div>
+            <div class="interactive"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="content mx-auto z-0 text-center ">
+            <div class="text-6xl px-4 font-bold font-montserrat  text-white ">
                 Looking for a digital experience that actually leaves an impression?
             </div>
-            <div class=" py-5 px-72 text-xl font-semibold font-montserrat text-white ">
+            <div class="py-5 px-6 md:px-72 text-xl font-semibold font-montserrat text-white">
                 Think design can’t be both beautiful and functional? Challenge accepted. Scroll down to see how I make
                 digital magic happen.
             </div>
+            <a href="#section2">
             <button
-                class="bg-yellow-300 font-montserrat  font-semibold my-auto text-2xl p-2 px-8 rounded-full text-whit ">Experience
-                It</button>
+                class="bg-yellow-400 font-montserrat font-semibold my-auto text-2xl p-2 px-8 rounded-full hover:bg-blue-400 transition duration-300">
+                Experience It
+            </button>
+        </a>
         </div>
+
+
     </div>
+
     <!-- ----------------------- -->
-    <div id="section2" class=" space-y-6 font-montserrat py-10 ">
+    <div data-aos="flip-down" id="section2" class=" space-y-6 font-montserrat py-10 ">
 
         <div class="bg-teal-100 w-3/4 h-3/4 rounded-xl p-10 flex flex-col mx-auto justify-center space-y-8 ">
             <div class="text-7xl pr-52 font-bold ">Crafting <span class="text-teal-600">experiences for brands</span>
@@ -134,8 +283,12 @@
                 connecting with folks in various communities.Innovation and new challenges excite me, and I’m always
                 ready to put my best foot forward!</div>
             <div class="space-x-4 py-2 font-semibold">
+                <a href="https://www.shortenn.me/anusha-resume">
                 <button class=" p-2 rounded-2xl bg-teal-500 w-56 text-white">My Resume</button>
+            </a>
+            <a href="#tech">
                 <button class="p-2 rounded-2xl  w-56 bg-yellow-300 ">Connect with Me</button>
+            </a>
             </div>
         </div>
 
@@ -150,21 +303,21 @@
 
         <!-- 2 column section starts -->
 
-        <div class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 max-w-screen-lg mx-auto font-montserrat ">
+        <div class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 max-w-screen-lg mx-auto font-montserrat  ">
 
-            <div class="relative group bg-yellow-300 rounded-xl overflow-hidden shadow-2xl  ">
+            <div data-aos="fade-right" class="relative group bg-yellow-300 rounded-xl overflow-hidden shadow-lg  ">
 
 
 
                 <!-- Image Section -->
                 <div class="px-12 pt-12 ">
                     <img src="./image1.png"
-                        class="w-96 h-64 rounded-xl transition-opacity duration-300 group-hover:opacity-80" />
+                        class="w-96 h-64 rounded-lg transition-opacity duration-300 group-hover:opacity-80" />
                 </div>
                 <div class=" text-6xl pt-4 px-12 text-[#391a53] transition-opacity duration-300 group-hover:opacity-50">
                     Virtus
                 </div>
-                <div class="px-12 text-base line-clamp-[2] text-gray-00 py-3 font-medium">A platform that has all
+                <div class="px-12 text-base line-clamp-[2] text-gray-00 my-3 font-medium">A platform that has all
                     financial planning instruments in one place and brings people to manage their financial issues
                     strategically.
                 </div>
@@ -190,7 +343,7 @@
                 <div class=" text-6xl pt-4 px-12 text-white 300 transition-opacity duration-300 group-hover:opacity-50">
                     Assess<span class="text-blue-700">AI</span>
                 </div>
-                <div class="px-12 text-base line-clamp-[2] text-gray-500 py-3 font-medium">This platform streamlines
+                <div class="px-12 text-base line-clamp-[2] text-gray-500 my-3 font-medium">This platform streamlines
                     student learning by
                     identifying individual weaknesses, tracking time spent, and suggesting key focus areas. </div>
 
@@ -212,7 +365,7 @@
 
 
 
-        <div id="section4"
+        <div id="section4" 
             class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 mt-5 max-w-screen-lg mx-auto font-montserrat">
 
             <div class=" bg-black relative  ">
@@ -222,7 +375,7 @@
                 <div class=" text-6xl pt-16 px-12 text-blue-700 transition-opacity duration-300 group-hover:opacity-50">
                     GenMart
                 </div>
-                <div class="pr-60 line-clamp-[9] text-lg pl-14 text-gray-500 py-3  font-medium">Your personalized
+                <div class="pr-60 line-clamp-[9] text-lg pl-14 text-gray-500 my-3  font-medium">Your personalized
                     shopping assistant, offering tailored recommendations based on your unique needs, sensitivities, and
                     preferences. With smart customization options like personalized designs and scent creation, it
                     ensures every product feels crafted just for you.
@@ -240,10 +393,10 @@
 
 
             </div>
-            <div class=" bg-violet-400 relative shadow-2xl  ">
+            <div class=" bg-violet-400 relative   " data-aos="fade-left">
                 <img src="./4.png" class=" absolute bottom-10 ">
                 <div class="text-6xl px-14 pt-16 ">Rapi<span class="text-red-800">Doc</span></div>
-                <div class="text-lg px-14 py-4 text-slate-800 line-clamp-[5] font-medium">A comprehensive online
+                <div class="text-lg px-14 my-6 text-slate-800 line-clamp-[5] font-medium">A comprehensive online
                     platform offering real-time updates on nearby hospitals and healthcare services, including blood
                     availability, OPDs, and bed occupancy. Your go-to solution for managing medical emergencies and
                     healthcare needs efficiently.</div>
@@ -255,9 +408,9 @@
         <div id="section5"
             class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 m-5 font-montserrat  max-w-screen-lg mx-auto ">
 
-            <div class=" bg-lime-300 relative shadow-2xl ">
-                <div class="text-5xl pt-14 pl-8 pr-52">Mobile Notary</div>
-                <div class="text-base font-medium pt-6 line-clamp-[10] text-gray-800 pl-6 pr-64">Offers comprehensive
+            <div class=" bg-lime-300 relative shadow-lg " data-aos="fade-right">
+                <div class="text-5xl pt-20 pl-8 pr-52">Mobile Notary</div>
+                <div class="text-base font-medium pt-6 line-clamp-[9] text-gray-800 pl-10 pr-[270px]">Offers comprehensive
                     notary and process server services, including mobile notary, remote notarization, and specialized
                     legal document handling. Developed as a freelance project, it highlights 24/7 availability, client
                     convenience, and tailored solutions.</div>
@@ -290,13 +443,13 @@
                             <div class="flex ">
 
                                 <div>
-                                    <div class="text-7xl pt-10 font-bold text-violet-700">Fresources</div>
-                                    <div class="text-lg font-medium text-violet-300 mt-2 ">
+                                    <div data-aos="slide-right" class="text-7xl pt-10 font-bold text-violet-700">Fresources</div>
+                                    <div data-aos="slide-right" class="text-lg font-medium text-violet-300 mt-2 ">
                                         One stop for all your academic solutions. Be it books, notes, assignments,
                                         practicals, question papers & solutions, we got you covered!
                                     </div>
 
-                                    <div class="flex my-auto">
+                                    <div data-aos="slide-right" class="flex my-auto">
                                         <div class="p-2 px-4 font-bold text-cyan-500  rounded-lg ">
                                             <h3 class="inline mb-2 text-3xl  " data-target="9000">1000</h3>
                                             <p class="text-base ">Students</p>
@@ -314,12 +467,12 @@
                                             <p class="text-base ">Resources</p>
                                         </div>
                                     </div>
-                                    <button
+                                    <button data-aos="slide-right"
                                         class="p-2 rounded-2xl w-52 bg-violet-700 text-lg font-semibold text-gray-300">See
                                         my Journey</button>
                                 </div>
 
-                                <img src="./img2.png" class="py-4 rounded-xl w-60 ">
+                                <img data-aos="slide-down" src="./img2.png" class="py-4 rounded-xl w-60 ">
 
 
 
@@ -330,7 +483,7 @@
                     </div>
 
                     <!-- Box 2 -->
-                    <div class="scroll-item bg-blue-100  p-10 flex flex-col space-y-8 rounded-xl shadow-2xl">
+                    <div data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="scroll-item bg-blue-100  p-10 flex flex-col space-y-8 rounded-xl shadow-2xl">
                         <div class="">
                             <div>
                                 <div class="text-7xl pt-2 font-bold text-black text-center">Quik<span
@@ -340,7 +493,7 @@
                                     design elements and product features for your idea in minutes.
                                 </div>
                                 <div class="flex gap-5 justify-center items-center">
-                                    <img src="./img5.png" class="h- w-full">
+                                    <img data-aos="flip-up" data-aos-duration="1000" data-aos-easing="linear" src="./img5.png" class="h- w-full">
 
                                 </div>
                             </div>
@@ -350,21 +503,22 @@
                     </div>
 
                     <!-- Box 3 -->
-                    <div
+                    <div 
                         class="scroll-item bg-cyan-950 px-10 flex flex-col justify-center items-center space-y-8 rounded-xl">
 
-                        <div class=" flex flex-col justify-center items-center">
+                        <div   class=" flex flex-col justify-center items-center">
 
                             <img src="./img6.png" class="w-[60%] flex justify-center items-center py-2 rounded-2xl">
-                            <div class="text-5xl pt-2 font-bold text-cyan-200 text-center">Microsoft Student Chapter
+                            <div data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"  class="text-5xl pt-2 font-bold text-cyan-200 text-center">Microsoft Student Chapter
                             </div>
-                            <div class="text-lg font-medium text-gray-300  mt-2 text-center pb-4  mx-auto">
+                            <div data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"  class="text-lg font-medium text-gray-300  mt-2 text-center pb-4  mx-auto">
                                 MSC is your one stop spot for all the amazing sessions and events here you can grow by
                                 learning from the mistakes, experiences, success and failure.
                             </div>
-                            <button
+                            <a href="https://mscigdtuw.netlify.app/">
+                            <button data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"
                                 class="p-2 w-48 font-semibold bg-blue-500 text-gray-200 rounded-xl text-lg flex justify-center items-center my-auto">Learn
-                                More</button>
+                                More</button> </a>
 
                         </div>
 
@@ -382,10 +536,10 @@
             <div class="text-7xl font-bold text-white ">Technologies </div>
             <div class="text-2xl font-semibold text-teal-600 ">Explore my digital design journey, blending
                 creativity, functionality, and strategy in every project.</div>
-        
-        
-            <div class=" flex gap-4 justify-center">
-                <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Icon 1">
+
+
+            <div class=" flex gap-4 justify-center" data-aos="fade-right" data-aos-duration="1000"  >
+                <img  src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Icon 1">
                 <img src="https://img.icons8.com/?size=100&id=TpULddJc4gTh&format=png&color=000000" alt="Icon 2">
                 <img src="https://img.icons8.com/?size=100&id=Nkym0Ujb8VGI&format=png&color=000000" alt="Icon 3">
                 <img src="https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000" alt="Icon 4">
@@ -393,10 +547,10 @@
                 <img src="https://img.icons8.com/?size=100&id=bzf0DqjXFHIW&format=png&color=000000" alt="Icon 6">
                 <img src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000" alt="Icon 7">
                 <img src="https://img.icons8.com/?size=100&id=bpip0gGiBLT1&format=png&color=000000" alt="Icon 7">
-                
-                
+
+
             </div>
-            <div class=" flex gap-4 justify-center">
+            <div class=" flex gap-4 justify-center" data-aos="fade-left" data-aos-duration="1000">
                 <img src="https://img.icons8.com/?size=100&id=XbcLokhpVq3o&format=png&color=000000" alt="Icon 1">
                 <img src="https://img.icons8.com/?size=100&id=zfHRZ6i1Wg0U&format=png&color=000000" alt="Icon 2">
                 <img src="https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png&color=000000" alt="Icon 3">
@@ -405,56 +559,66 @@
                 <img src="https://img.icons8.com/?size=100&id=jH4BpkMnRrU5&format=png&color=000000" alt="Icon 6">
                 <img src="https://img.icons8.com/?size=100&id=4d9YPiN04osD&format=png&color=000000" alt="Icon 7">
                 <img src="https://img.icons8.com/?size=100&id=Ny0t2MYrJ70p&format=png&color=000000" alt="Icon 7">
-       
-                
-               
+
+
+
             </div>
-       
-    </div>
 
-
-        
-        <div class="bg-pink-950 w-3/4 text-center h-auto rounded-xl p-10 flex flex-col mx-auto  ">
-            
-                <div class="text-7xl text-gray-200 font-bold">Connect with Me</div>
-                <div class="  text-2xl py-4 font-semibold text-pink-600 ">Get in touch to explore ideas, share insights,
-                    or simply say hello!</div>
-                <div class="flex justify-center gap-8  ">
-                    <lord-icon class=" space-y-4" src="https://cdn.lordicon.com/jpxhrooi.json" trigger="loop"
-                        style="width:150px;height:150px">
-                    </lord-icon>
-                    <lord-icon src="https://cdn.lordicon.com/tdhnvcoq.json" trigger="loop" delay="2000"
-                        style="width:150px;height:150px">
-                    </lord-icon>
-
-                    <lord-icon src="https://cdn.lordicon.com/wbuzyhjx.json" trigger="loop" delay="2000"
-                        style="width:150px;height:150px">
-                    </lord-icon>
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150" height="150"
-                            viewBox="0 0 48 48">
-                            <path fill="#2100c"
-                                d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z">
-                            </path>
-                            <path fill="#ddbaff"
-                                d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z">
-                            </path>
-                            <path fill="#ddbaff"
-                                d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z">
-                            </path>
-                            <path fill="#ddbaff"
-                                d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z">
-                            </path>
-                            <path fill="#ddbaff"
-                                d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z">
-                            </path>
-                        </svg>
-                    </div>
-                </div>
-            
         </div>
 
-        <div class="bg-black w-20  h-8">
+
+
+        <div id="tech" class="bg-pink-950 w-3/4 text-center h-auto rounded-xl p-10 flex flex-col mx-auto  ">
+
+            <div class="text-7xl text-gray-200 font-bold">Connect with Me</div>
+            <div class="  text-2xl py-4 font-semibold text-pink-600 ">Get in touch to explore ideas, share insights,
+                or simply say hello!</div>
+            <div class="flex justify-center gap-8  ">
+                <a href="https://www.linkedin.com/in/anushamahajan">
+                <lord-icon class=" space-y-4" src="https://cdn.lordicon.com/jpxhrooi.json" trigger="loop"
+                    style="width:150px;height:150px">
+                </lord-icon>
+            </a>
+            <a href="mailto:anushamahajan2004@gmail.com">
+                <lord-icon src="https://cdn.lordicon.com/tdhnvcoq.json" trigger="loop" delay="2000"
+                    style="width:150px;height:150px">
+                </lord-icon>
+
+                </a>
+                <a href="https://www.instagram.com/anushaaaa.___">
+
+                <lord-icon src="https://cdn.lordicon.com/wbuzyhjx.json" trigger="loop" delay="2000"
+                    style="width:150px;height:150px">
+                </lord-icon>
+
+            </a>
+            <a href="https://www.github.com/anushamahajan">
+                <div class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150" height="150"
+                        viewBox="0 0 48 48">
+                        <path fill="#2100c"
+                            d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z">
+                        </path>
+                        <path fill="#ddbaff"
+                            d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z">
+                        </path>
+                        <path fill="#ddbaff"
+                            d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z">
+                        </path>
+                        <path fill="#ddbaff"
+                            d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z">
+                        </path>
+                        <path fill="#ddbaff"
+                            d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z">
+                        </path>
+                    </svg>
+                </div>
+            </a>
+            </div>
+
+        </div>
+
+        <div class="bg-transparent w-20  h-8">
 
         </div>
 
@@ -463,8 +627,12 @@
         <script src="./script.js">
 
         </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>AOS.init();</script>
+
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
 
 
 

@@ -9,7 +9,7 @@ window.addEventListener("scroll", () => {
   } else if (scrollPosition < windowHeight * 3) {
     document.body.style.backgroundColor = "#fde047";
   } else if (scrollPosition < windowHeight * 4) {
-    document.body.style.backgroundColor = "#a78bfa";
+    document.body.style.backgroundColor = "#000000";
   } else if (scrollPosition < windowHeight * 5) {
     document.body.style.backgroundColor = "#bef264";
   } else if (scrollPosition < windowHeight * 6) {
@@ -18,13 +18,38 @@ window.addEventListener("scroll", () => {
     else if (scrollPosition < windowHeight * 7) {
     document.body.style.backgroundColor = "#083344";
   } 
-  else if (scrollPosition < windowHeight * 8) {
+    else if (scrollPosition < windowHeight * 8) {
     document.body.style.backgroundColor = "#000000";
   }
 
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const interBubble = document.querySelector('.interactive');
+  let curX = 0;
+  let curY = 0;
+  let tgX = 0;
+  let tgY = 0;
+
+  function move() {
+      // Adjust for element's height and width to center it on the cursor
+      const offsetX = interBubble.offsetWidth / 2;
+      const offsetY = interBubble.offsetHeight / 2;
+
+      curX += (tgX - curX) / 20;
+      curY += (tgY - curY) / 20;
+      interBubble.style.transform = `translate(${Math.round(curX - offsetX)}px, ${Math.round(curY - offsetY)}px)`;
+      requestAnimationFrame(move);
+  }
+
+  window.addEventListener('mousemove', (event) => {
+      tgX = event.clientX;
+      tgY = event.clientY;
+  });
+
+  move();
+});
 
 
 
@@ -133,6 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+window.addEventListener('load', () => {
+  const splash = document.getElementById('splash');
+  setTimeout(() => {
+      splash.classList.add('fade-out');
+      // Optional: Remove the splash element entirely after the animation
+      splash.addEventListener('animationend', () => splash.remove());
+  }, 2000); // Adjust the timeout duration as needed
+});
 
 // Start the typing animation
 document.addEventListener("DOMContentLoaded", type);
