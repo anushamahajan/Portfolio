@@ -219,7 +219,7 @@
         .text-wrapper {
             position: fixed;
             width: 100%;
-            height: 100vh;
+            height: 150vh;
             left: -50%;
             display: flex;
             flex-direction: column;
@@ -235,14 +235,11 @@
         }
 
         .text {
-            width: 300%;
-            font-family: "Fivo Sans Modern";
-            font-size: 4vw;
-            text-transform: uppercase;
-            opacity: 0.1;
+            width: 30%;
+            font-size: 6vw;
+            opacity: 0.3;
             overflow: visible;
-            white-space: nowrap;
-            color: white;
+            color: purple;
         }
 
         @media screen and (max-width: 991px) {
@@ -253,7 +250,7 @@
 
         @media screen and (max-width: 479px) {
             .text {
-                font-size: 14vw;
+                font-size: 10vw;
             }
         }
 
@@ -268,7 +265,7 @@
             z-index: 200;
             height: 100vh;
             width: 100%;
-            list-style: none;
+            
         }
 
         .text-container li {
@@ -283,6 +280,7 @@
     <!-- <div id="splash" class="h-screen w-screen splash-screen">
         <img src="./splash.gif"></img>
     </div> -->
+    <div>
     <ul class="text-container">
         <li></li>
         <li></li>
@@ -292,65 +290,51 @@
     </ul>
     <div class="text-wrapper">
         <div class="text">
-            Zealously few furniture repulsive agreeable consisted. Zealously few
-            furniture repulsive agreeable consisted.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Collected breakfast estimable questions in to it. Collected breakfast
-            estimable questions in to it.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            For him precaution any advantages dissimilar few. For him precaution any
-            advantages dissimilar few.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Shortly respect ask cousins brought add tedious nay. Shortly respect ask
-            cousins brought add tedious nay.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Object remark lively all did feebly excuse our wooded. Object remark
-            lively all did feebly excuse our wooded.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Sufficient unpleasing an insensible motionless if ye. Sufficient
-            unpleasing an insensible motionless if ye.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            The for fully had she there leave merit enjoy forth. The for fully had
-            she there leave merit enjoy forth.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            In in written on charmed justice is amiable farther. In in written on
-            charmed justice is amiable farther.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
+        <div class="text">
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            How daughters not promotion few knowledge contented. How daughters not
-            promotion few knowledge contented.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Zealously few furniture repulsive. Zealously few furniture repulsive.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Collected breakfast estimable questions in to it. Collected breakfast
-            estimable questions in to it.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            For him precaution any advantages dissimilar few. For him precaution any
-            advantages dissimilar few.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Shortly respect ask cousins brought add tedious nay. Shortly respect ask
-            cousins brought add tedious nay.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
         <div class="text">
-            Object remark lively all did feebly excuse wooded. Object remark lively
-            all did feebly excuse wooded.
-        </div>
-        <div class="text">
-            Sufficient unpleasing an insensible motionless ye. Sufficient unpleasing
-            an insensible motionless ye.
+            Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.Code.Debug.Repeat.
         </div>
     </div>
+</div>
 
     <!-- Home Page -->
 
@@ -801,9 +785,9 @@
             });
 
             gsap.to(".text-wrapper", 3, {
-                y: -600,
-                scale: 3,
-                rotate: -90,
+                y: -500,
+                scale: 1,
+                rotate: -60,
                 ease: Expo.easeInOut,
                 delay: 1.5,
             });
@@ -824,9 +808,8 @@
             gsap.to(".text-container li", {
                 duration: 0.5,
                 scaleY: 0,
-                transformOrigin: "bottom left",
-                stagger: 0.1,
-                delay: 6.5,
+                transformOrigin: "top right",
+                delay: 6,
                 onComplete: function () {
                     const elementsToHide = document.querySelectorAll(
                         ".btn-reveal, .text-wrapper > div, .text-wrapper, .text, .text-container"
