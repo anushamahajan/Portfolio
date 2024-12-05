@@ -77,7 +77,7 @@
         }
 
         body {
-            transition: background-color 0.1s ease;
+            transition: background-color 0.1s linear;
         }
 
         svg {
@@ -195,8 +195,8 @@
             }
         }
 
-       /* Splash Screen Styling */
-       .splash-screen {
+        /* Splash Screen Styling */
+        .splash-screen {
             position: fixed;
             top: 0;
             left: 0;
@@ -211,13 +211,14 @@
 
         /* Fade-out effect for splash screen */
         .fade-out {
-            animation: fadeOut 1.5s ease forwards;
+            animation: fadeOut 1s ease forwards;
         }
 
         @keyframes fadeOut {
             from {
-                opacity: 1;
+                opacity: 0;
             }
+
             to {
                 opacity: 0;
                 visibility: hidden;
@@ -227,9 +228,9 @@
 </head>
 
 <body class="h-screen overflow-x-hidden">
-    <!-- <div id="splash" class="h-screen w-screen splash-screen">
-        <video src="./splash.mp4"></video>
-    </div> -->
+    <div id="splash" class="h-screen w-screen splash-screen">
+        <img src="./splash.gif"></img>
+    </div>
 
 
     <!-- Home Page -->
@@ -254,11 +255,11 @@
                 digital magic happen.
             </div>
             <a href="#section2">
-            <button
-                class="bg-yellow-400 font-montserrat font-semibold my-auto text-2xl p-2 px-8 rounded-full hover:bg-blue-400 transition duration-300">
-                Experience It
-            </button>
-        </a>
+                <button
+                    class="bg-yellow-400 font-montserrat font-semibold my-auto text-2xl p-2 px-8 rounded-full hover:bg-blue-400 transition duration-300">
+                    Experience It
+                </button>
+            </a>
         </div>
 
 
@@ -284,11 +285,11 @@
                 ready to put my best foot forward!</div>
             <div class="space-x-4 py-2 font-semibold">
                 <a href="https://www.shortenn.me/anusha-resume">
-                <button class=" p-2 rounded-2xl bg-teal-500 w-56 text-white">My Resume</button>
-            </a>
-            <a href="#tech">
-                <button class="p-2 rounded-2xl  w-56 bg-yellow-300 ">Connect with Me</button>
-            </a>
+                    <button class=" p-2 rounded-2xl bg-teal-500 w-56 text-white">My Resume</button>
+                </a>
+                <a href="#tech">
+                    <button class="p-2 rounded-2xl  w-56 bg-yellow-300 ">Connect with Me</button>
+                </a>
             </div>
         </div>
 
@@ -312,24 +313,22 @@
                 <!-- Image Section -->
                 <div class="px-12 pt-12 ">
                     <img src="./image1.png"
-                        class="w-96 h-64 rounded-lg transition-opacity duration-300 group-hover:opacity-80" />
+                        class="w-96 h-64 rounded-lg transition-opacity duration-300 " />
                 </div>
-                <div class=" text-6xl pt-4 px-12 text-[#391a53] transition-opacity duration-300 group-hover:opacity-50">
-                    Virtus
-                </div>
-                <div class="px-12 text-base line-clamp-[2] text-gray-00 my-3 font-medium">A platform that has all
+                <a
+                    href="https://www.figma.com/proto/FawYUhpxipm08O3LsVWlmR/Untitled-(Copy)?node-id=5-2&node-type=canvas&t=iIky2zKzPpHKGyxt-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1">
+                    <div
+                        class=" text-6xl pt-4 px-12 text-[#391a53] transition-opacity duration-300 group-hover:opacity-50">
+                        Virtus
+                    </div>
+                </a>
+                <div class="px-12 text-base line-clamp-[2] text-gray-00 my-3 font-medium  ">A
+                    platform that has all
                     financial planning instruments in one place and brings people to manage their financial issues
                     strategically.
                 </div>
-
-
-
-                <!-- Hover Text Section
-                <div
-                    class="absolute bg-opacity-60 bottom-0 left-0 w-full bg-white text-base p-8 font-medium font-montserrat text-center py-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ">
-                    <p class="">This AI-driven platform streamlines student learning by identifying individual weaknesses, tracking time spent, and suggesting key focus areas. It provides personalized feedback, detailed performance analysis, adaptive learning paths, automated progress reports, peer benchmarking, and real-time recommendations aimed at improving success in skill development.</p>
-                </div>  -->
             </div>
+
 
             <div class="relative group bg-black rounded-xl overflow-hidden shadow-xl   ">
 
@@ -337,24 +336,21 @@
 
                 <!-- Image Section -->
                 <div class="px-12 pt-12 ">
-                    <img src="./image2.png"
-                        class="w-96 h-64 rounded-xl transition-opacity duration-300 group-hover:opacity-80" />
+                    <img src="./image2.png" class="w-96 h-64 rounded-xl transition-opacity duration-300 " />
                 </div>
-                <div class=" text-6xl pt-4 px-12 text-white 300 transition-opacity duration-300 group-hover:opacity-50">
-                    Assess<span class="text-blue-700">AI</span>
-                </div>
-                <div class="px-12 text-base line-clamp-[2] text-gray-500 my-3 font-medium">This platform streamlines
+                <a
+                    href="https://www.figma.com/proto/dKyzDFw2tYaDijvl5J1jG2/SIH-(Copy)?node-id=2-12291&node-type=canvas&t=aUtIIySN1hUqwfp2-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A12291&show-proto-sidebar=1">
+                    <div
+                        class=" text-6xl pt-4 px-12 text-white 300 transition-opacity duration-300 group-hover:opacity-50">
+                        Assess<span class="text-blue-700">AI</span>
+                    </div>
+                </a>
+                <div class="px-12 text-base line-clamp-[2] text-gray-500 my-3   font-medium">
+                    This platform streamlines
                     student learning by
                     identifying individual weaknesses, tracking time spent, and suggesting key focus areas. </div>
-
-
-
-                <!-- Hover Text Section
-            <div
-                class="absolute bg-opacity-60 bottom-0 left-0 w-full bg-white text-base p-8 font-medium font-montserrat text-center py-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ">
-                <p class="">This AI-driven platform streamlines student learning by identifying individual weaknesses, tracking time spent, and suggesting key focus areas. It provides personalized feedback, detailed performance analysis, adaptive learning paths, automated progress reports, peer benchmarking, and real-time recommendations aimed at improving success in skill development.</p>
-            </div>  -->
             </div>
+
 
 
         </div>
@@ -365,21 +361,24 @@
 
 
 
-        <div id="section4" 
-            class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 mt-5 max-w-screen-lg mx-auto font-montserrat">
+        <div id="section4"
+            class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 mt-5 max-w-screen-lg mx-auto font-montserrat relative group ">
 
-            <div class=" bg-black relative  ">
-                <img src="./3.png"
-                    class="w-60 h-72 rounded-xl bottom-12 absolute right-1 rounded-xl transition-opacity duration-300 group-hover:opacity-80">
+            <div class=" bg-black relative group ">
 
-                <div class=" text-6xl pt-16 px-12 text-blue-700 transition-opacity duration-300 group-hover:opacity-50">
-                    GenMart
-                </div>
-                <div class="pr-60 line-clamp-[9] text-lg pl-14 text-gray-500 my-3  font-medium">Your personalized
+                <img src="./3.png" class="w-60 h-72 bottom-12 absolute right-1   duration-300 ">
+                <a
+                    href="https://www.figma.com/design/5VwoVC0K8GrF1dRwIIBC6u/Untitled?node-id=0-1&node-type=canvas&t=gdoqMHwscXWMYJQN-0">
+                    <div class=" text-6xl pt-16 px-12 text-blue-700 duration-300 group-hover:opacity-50">
+                        GenMart
+                    </div>
+                </a>
+                <div class="pr-60 line-clamp-[9] text-lg pl-14 text-gray-500 my-3 font-medium">Your personalized
                     shopping assistant, offering tailored recommendations based on your unique needs, sensitivities, and
                     preferences. With smart customization options like personalized designs and scent creation, it
                     ensures every product feels crafted just for you.
                 </div>
+
 
 
 
@@ -393,10 +392,14 @@
 
 
             </div>
-            <div class=" bg-violet-400 relative   " data-aos="fade-left">
-                <img src="./4.png" class=" absolute bottom-10 ">
-                <div class="text-6xl px-14 pt-16 ">Rapi<span class="text-red-800">Doc</span></div>
-                <div class="text-lg px-14 my-6 text-slate-800 line-clamp-[5] font-medium">A comprehensive online
+            <div class=" bg-violet-400 relative group  " data-aos="fade-left">
+
+                <img src="./4.png" class="  absolute bottom-10 ">
+                <a href="https://rapidoc.netlify.app/">
+                    <div class="text-6xl  group-hover:opacity-60 px-14 pt-16 ">Rapi<span class="text-red-800">Doc</span>
+                    </div>
+                </a>
+                <div class="text-lg   px-14 my-6 text-slate-800 line-clamp-[5] font-medium">A comprehensive online
                     platform offering real-time updates on nearby hospitals and healthcare services, including blood
                     availability, OPDs, and bed occupancy. Your go-to solution for managing medical emergencies and
                     healthcare needs efficiently.</div>
@@ -406,27 +409,33 @@
 
 
         <div id="section5"
-            class="*:rounded-xl grid grid-cols-2 h-3/4 space-x-5 m-5 font-montserrat  max-w-screen-lg mx-auto ">
+            class="*:rounded-xl relative group grid grid-cols-2 h-3/4 space-x-5 m-5 font-montserrat  max-w-screen-lg mx-auto ">
 
-            <div class=" bg-lime-300 relative shadow-lg " data-aos="fade-right">
-                <div class="text-5xl pt-20 pl-8 pr-52">Mobile Notary</div>
-                <div class="text-base font-medium pt-6 line-clamp-[9] text-gray-800 pl-10 pr-[270px]">Offers comprehensive
+            <div class=" bg-lime-300 relative shadow-lg   " data-aos="fade-right">
+                <a href="https://www.thebrowardmobilenotary.com/">
+                    <div class="text-5xl pt-16 pl-8 group-hover:opacity-70 pr-52">Mobile Notary</div>
+                </a>
+                <div class="text-base font-medium pt-6 line-clamp-[9] text-gray-800 pl-10 pr-[270px]">Offers
+                    comprehensive
                     notary and process server services, including mobile notary, remote notarization, and specialized
                     legal document handling. Developed as a freelance project, it highlights 24/7 availability, client
                     convenience, and tailored solutions.</div>
-                <img src="img.png" class="absolute rounded-2xl right-2 top-10 h-5/6">
+                <img src="img.png" class="absolute rounded-2xl right-2 top-10 h-5/6" img />
+
+
 
 
             </div>
-            <div class=" bg-black  relative">
-
-                <div class="text-5xl pt-8 px-8 text-white">UrgentCouriers</div>
-                <div class="text-base line-clamp-3 pt-4 px-8 text-gray-300 font-medium ">A platform that offers 24/7
+            <div class=" bg-black  relative  ">
+                <a href="https://courier-services-vert.vercel.app/">
+                    <div class="text-5xl pt-8 px-8 text-white  group-hover:opacity-50">UrgentCouriers</div>
+                </a>
+                <div class="text-base line-clamp-3 pt-4 px-8 text-gray-300 font-medium   ">A platform that offers 24/7
                     express delivery services, real-time package tracking, and customized solutions for industries like
                     healthcare, legal, and retail, ensuring fast and reliable logistics across Broward, Palm Beach, and
                     Miami-Dade counties. This was developed as part of a freelance gig, focusing on user-friendly
                     content and seamless functionality.</div>
-                <img src="./img1.png" class="absolute rounded-2xl bottom-8 w-96 h-64 right-14">
+                <img src="./img1.png" class="   absolute rounded-2xl bottom-8 w-96 h-64 right-14">
 
             </div>
         </div>
@@ -439,11 +448,12 @@
                 <div class="inner flex pb-20 space-x-10 ">
                     <!-- Box 1 -->
                     <div class="scroll-item !bg-indigo-950 flex flex-col py-6 px-10 rounded-xl">
-                        <div class="">
+                       
                             <div class="flex ">
 
                                 <div>
-                                    <div data-aos="slide-right" class="text-7xl pt-10 font-bold text-violet-700">Fresources</div>
+                                    <div data-aos="slide-right" class="text-7xl pt-10 font-bold text-violet-700">
+                                        Fresources</div>
                                     <div data-aos="slide-right" class="text-lg font-medium text-violet-300 mt-2 ">
                                         One stop for all your academic solutions. Be it books, notes, assignments,
                                         practicals, question papers & solutions, we got you covered!
@@ -467,9 +477,10 @@
                                             <p class="text-base ">Resources</p>
                                         </div>
                                     </div>
+                                    <a href="https://fresources.tech/">
                                     <button data-aos="slide-right"
                                         class="p-2 rounded-2xl w-52 bg-violet-700 text-lg font-semibold text-gray-300">See
-                                        my Journey</button>
+                                        my Journey</button> </a>
                                 </div>
 
                                 <img data-aos="slide-down" src="./img2.png" class="py-4 rounded-xl w-60 ">
@@ -478,22 +489,25 @@
 
                             </div>
 
-                        </div>
+                        
 
                     </div>
 
                     <!-- Box 2 -->
-                    <div data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-in-sine" class="scroll-item bg-blue-100  p-10 flex flex-col space-y-8 rounded-xl shadow-2xl">
+                    <div data-aos="fade-down" data-aos-duration="1500" data-aos-easing="ease-in-sine"
+                        class="scroll-item bg-blue-100  p-10 flex flex-col space-y-8 rounded-xl shadow-2xl">
                         <div class="">
                             <div>
+                                <a href="https://devfolio.co/projects/quikplanr-5f4f">
                                 <div class="text-7xl pt-2 font-bold text-black text-center">Quik<span
-                                        class="text-blue-600">Planr</span></div>
+                                        class="text-blue-600">Planr</span></div> </a>
                                 <div class="text-lg font-medium text-gray-700 py-4 mt-2 text-center max-w-xl mx-auto">
                                     QuikPlanr is a platform that suggests marketing strategies,
                                     design elements and product features for your idea in minutes.
                                 </div>
                                 <div class="flex gap-5 justify-center items-center">
-                                    <img data-aos="flip-up" data-aos-duration="1000" data-aos-easing="linear" src="./img5.png" class="h- w-full">
+                                    <img data-aos="flip-up" data-aos-duration="1000" data-aos-easing="linear"
+                                        src="./img5.png" class="h- w-full">
 
                                 </div>
                             </div>
@@ -503,22 +517,24 @@
                     </div>
 
                     <!-- Box 3 -->
-                    <div 
+                    <div
                         class="scroll-item bg-cyan-950 px-10 flex flex-col justify-center items-center space-y-8 rounded-xl">
 
-                        <div   class=" flex flex-col justify-center items-center">
+                        <div class=" flex flex-col justify-center items-center">
 
                             <img src="./img6.png" class="w-[60%] flex justify-center items-center py-2 rounded-2xl">
-                            <div data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"  class="text-5xl pt-2 font-bold text-cyan-200 text-center">Microsoft Student Chapter
+                            <div data-aos="fade-down" data-aos-duration="1000" data-aos-easing="linear"
+                                class="text-5xl pt-2 font-bold text-cyan-200 text-center">Microsoft Student Chapter
                             </div>
-                            <div data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"  class="text-lg font-medium text-gray-300  mt-2 text-center pb-4  mx-auto">
+                            <div data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"
+                                class="text-lg font-medium text-gray-300  mt-2 text-center pb-4  mx-auto">
                                 MSC is your one stop spot for all the amazing sessions and events here you can grow by
                                 learning from the mistakes, experiences, success and failure.
                             </div>
                             <a href="https://mscigdtuw.netlify.app/">
-                            <button data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"
-                                class="p-2 w-48 font-semibold bg-blue-500 text-gray-200 rounded-xl text-lg flex justify-center items-center my-auto">Learn
-                                More</button> </a>
+                                <button data-aos="fade-down" data-aos-duration="3000" data-aos-easing="linear"
+                                    class="p-2 w-48 font-semibold bg-blue-500 text-gray-200 rounded-xl text-lg flex justify-center items-center my-auto">Learn
+                                    More</button> </a>
 
                         </div>
 
@@ -538,8 +554,8 @@
                 creativity, functionality, and strategy in every project.</div>
 
 
-            <div class=" flex gap-4 justify-center" data-aos="fade-right" data-aos-duration="1000"  >
-                <img  src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Icon 1">
+            <div class=" flex gap-4 justify-center" data-aos="fade-right" data-aos-duration="1000">
+                <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Icon 1">
                 <img src="https://img.icons8.com/?size=100&id=TpULddJc4gTh&format=png&color=000000" alt="Icon 2">
                 <img src="https://img.icons8.com/?size=100&id=Nkym0Ujb8VGI&format=png&color=000000" alt="Icon 3">
                 <img src="https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000" alt="Icon 4">
@@ -575,45 +591,45 @@
                 or simply say hello!</div>
             <div class="flex justify-center gap-8  ">
                 <a href="https://www.linkedin.com/in/anushamahajan">
-                <lord-icon class=" space-y-4" src="https://cdn.lordicon.com/jpxhrooi.json" trigger="loop"
-                    style="width:150px;height:150px">
-                </lord-icon>
-            </a>
-            <a href="mailto:anushamahajan2004@gmail.com">
-                <lord-icon src="https://cdn.lordicon.com/tdhnvcoq.json" trigger="loop" delay="2000"
-                    style="width:150px;height:150px">
-                </lord-icon>
+                    <lord-icon class=" space-y-4" src="https://cdn.lordicon.com/jpxhrooi.json" trigger="loop"
+                        style="width:150px;height:150px">
+                    </lord-icon>
+                </a>
+                <a href="mailto:anushamahajan2004@gmail.com">
+                    <lord-icon src="https://cdn.lordicon.com/tdhnvcoq.json" trigger="loop" delay="2000"
+                        style="width:150px;height:150px">
+                    </lord-icon>
 
                 </a>
                 <a href="https://www.instagram.com/anushaaaa.___">
 
-                <lord-icon src="https://cdn.lordicon.com/wbuzyhjx.json" trigger="loop" delay="2000"
-                    style="width:150px;height:150px">
-                </lord-icon>
+                    <lord-icon src="https://cdn.lordicon.com/wbuzyhjx.json" trigger="loop" delay="2000"
+                        style="width:150px;height:150px">
+                    </lord-icon>
 
-            </a>
-            <a href="https://www.github.com/anushamahajan">
-                <div class="">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150" height="150"
-                        viewBox="0 0 48 48">
-                        <path fill="#2100c"
-                            d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z">
-                        </path>
-                        <path fill="#ddbaff"
-                            d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z">
-                        </path>
-                        <path fill="#ddbaff"
-                            d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z">
-                        </path>
-                        <path fill="#ddbaff"
-                            d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z">
-                        </path>
-                        <path fill="#ddbaff"
-                            d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z">
-                        </path>
-                    </svg>
-                </div>
-            </a>
+                </a>
+                <a href="https://www.github.com/anushamahajan">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="150" height="150"
+                            viewBox="0 0 48 48">
+                            <path fill="#2100c"
+                                d="M24,4C12.954,4,4,12.954,4,24c0,8.887,5.801,16.411,13.82,19.016h12.36 C38.199,40.411,44,32.887,44,24C44,12.954,35.046,4,24,4z">
+                            </path>
+                            <path fill="#ddbaff"
+                                d="M37,23.5c0-2.897-0.875-4.966-2.355-6.424C35.591,15.394,34.339,12,34.339,12 c-2.5,0.5-4.367,1.5-5.609,2.376C27.262,14.115,25.671,14,24,14c-1.71,0-3.339,0.118-4.834,0.393 c-1.242-0.879-3.115-1.889-5.632-2.393c0,0-1.284,3.492-0.255,5.146C11.843,18.6,11,20.651,11,23.5 c0,6.122,3.879,8.578,9.209,9.274C19.466,33.647,19,34.764,19,36l0,0.305c-0.163,0.045-0.332,0.084-0.514,0.108 c-1.107,0.143-2.271,0-2.833-0.333c-0.562-0.333-1.229-1.083-1.729-1.813c-0.422-0.616-1.263-2.032-3.416-1.979 c-0.376-0.01-0.548,0.343-0.5,0.563c0.043,0.194,0.213,0.5,0.896,0.75c0.685,0.251,1.063,0.854,1.438,1.458 c0.418,0.674,0.417,2.468,2.562,3.416c1.53,0.677,2.988,0.594,4.097,0.327l0.001,3.199c0,0.639-0.585,1.125-1.191,1.013 C19.755,43.668,21.833,44,24,44c2.166,0,4.243-0.332,6.19-0.984C29.584,43.127,29,42.641,29,42.002L29,36 c0-1.236-0.466-2.353-1.209-3.226C33.121,32.078,37,29.622,37,23.5z">
+                            </path>
+                            <path fill="#ddbaff"
+                                d="M15,18l3.838-1.279c1.01-0.337,1.231-1.684,0.365-2.302l-0.037-0.026 c-2.399,0.44-4.445,1.291-5.888,2.753C13.596,17.658,14.129,18,15,18z">
+                            </path>
+                            <path fill="#ddbaff"
+                                d="M28.693,14.402c-0.878,0.623-0.655,1.987,0.366,2.327L32.872,18c0.913,0,1.461-0.37,1.773-0.924 c-1.46-1.438-3.513-2.274-5.915-2.701C28.717,14.384,28.705,14.393,28.693,14.402z">
+                            </path>
+                            <path fill="#ddbaff"
+                                d="M24,31c-1.525,0-2.874,0.697-3.791,1.774C21.409,32.931,22.681,33,24,33s2.591-0.069,3.791-0.226 C26.874,31.697,25.525,31,24,31z">
+                            </path>
+                        </svg>
+                    </div>
+                </a>
             </div>
 
         </div>
