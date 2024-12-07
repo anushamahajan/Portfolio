@@ -70,7 +70,7 @@ window.addEventListener("scroll", function () {
       var _start = (windowScroll - $horizontalWrapper.offsetTop + stickyThreshold);
       var _end = ($horizontalWrapper.offsetTop + $horizontalWrapper.offsetHeight - window.innerHeight);
 
-      const scrollSpeedModifier = 2.5; // Adjust this value to change scroll speed
+      const scrollSpeedModifier =  2.5  ; // Adjust this value to change scroll speed
       var pct = (_start / _end) * 100 * scrollSpeedModifier;
 
       pct = Math.min(pct, 100);
